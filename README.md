@@ -1,0 +1,1 @@
+servant-static/README.lhs
