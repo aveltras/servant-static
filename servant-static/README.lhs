@@ -1,7 +1,7 @@
 # servant-static
 
-This library provides a Template Haskell helper to generate Servant api, server and links for your static assets.
-Under the hood, it uses [file-embed](https://hackage.haskell.org/package/file-embed) to serve your files directly from memory.
+This library provides a Template Haskell helper to generate Servant api, server and links for your static assets.  
+Under the hood, it uses [file-embed](https://hackage.haskell.org/package/file-embed) to serve your assets directly from memory.  
 It also generates hashed names for maximum cachability.
 
 ## Usage
