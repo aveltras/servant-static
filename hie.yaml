@@ -1,0 +1,4 @@
+cradle:
+  multi:
+    - path: "./servant-static/src"
+      config: { cradle: {cabal: {component: "servant-static"}} }

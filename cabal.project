@@ -1,0 +1,4 @@
+optional-packages: */**
+
+package servant-static
+  ghc-options: -Wall -Wcompat -Wincomplete-record-updates -Wincomplete-uni-patterns -Wredundant-constraints
