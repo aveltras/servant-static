@@ -14,7 +14,7 @@ import           Crypto.Hash                (MD5, hash)
 import qualified Data.ByteString            as BS
 import qualified Data.ByteString.Char8      as C8
 import qualified Data.ByteString.Lazy.Char8 as LBS
-import           Data.FileEmbed             (getDir)
+import           Data.FileEmbed             (getDir, makeRelativeToProject)
 import           Data.Proxy                 (Proxy (..))
 import           Data.Text                  (Text)
 import qualified Data.Text                  as T
@@ -37,7 +37,7 @@ type Entry = (FilePath, FilePath, BS.ByteString, MimeType)
 
 mkApp :: String -> FilePath -> Q [Dec]
 mkApp apiName staticDir = do
-  entries <- fetchEntries staticDir
+  entries <- fetchEntries =<< makeRelativeToProject staticDir
   mconcat <$> sequenceA [ mkAPI apiName entries, mkServer apiName entries, mkLinks apiName entries, mkApp' ]
   where
     mkApp' = sequence [appSig, appFunc]
