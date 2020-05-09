@@ -39,7 +39,6 @@ type Entry = (FilePath, FilePath, BS.ByteString, MimeType, FilePath)
 mkApp :: String -> FilePath -> Q [Dec]
 mkApp apiName staticDir = do
   entries <- fetchEntries =<< makeRelativeToProject staticDir
-  runIO $ print entries
   mconcat <$> sequenceA [ mkAPI apiName entries
                         , mkServer apiName entries
                         , mkServerReload apiName entries
